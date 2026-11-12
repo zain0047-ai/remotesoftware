@@ -1,4 +1,4 @@
-import { createHmac, timingSafeEqual } from "crypto";
+import { createHash, createHmac, timingSafeEqual } from "crypto";
 import { NextResponse } from "next/server";
 
 export const SESSION_COOKIE = "clarity_session";
@@ -8,13 +8,34 @@ const DEV_FALLBACK_SECRET =
   "dev-insecure-session-secret-change-me-0123456789abcdef";
 
 /**
- * Session signing secret. On serverless hosts (Vercel) there is no persistent
- * writable filesystem, so this must come from the SESSION_SECRET env var.
- * A fixed fallback is used only in non-production so local dev works.
+ * Session signing secret.
+ *
+ * Preference order:
+ *  1. SESSION_SECRET env var (recommended; set a long random string).
+ *  2. A stable secret derived from the database connection string. The DB URL
+ *     is always present on the server and is itself secret/high-entropy, so
+ *     this keeps the app working without extra config and stays consistent
+ *     across serverless instances and redeploys (no per-instance drift).
+ *  3. A fixed dev fallback (non-production only).
  */
 export function getSessionSecret(): string {
   const fromEnv = process.env.SESSION_SECRET?.trim();
   if (fromEnv && fromEnv.length >= 16) return fromEnv;
+
+  const dbUrl = (
+    process.env.DATABASE_URL ||
+    process.env.POSTGRES_URL ||
+    process.env.POSTGRES_PRISMA_URL ||
+    process.env.DATABASE_URL_UNPOOLED ||
+    process.env.POSTGRES_URL_NON_POOLING ||
+    ""
+  ).trim();
+  if (dbUrl) {
+    return createHash("sha256")
+      .update(`claritytrack-session-v1:${dbUrl}`)
+      .digest("base64url");
+  }
+
   if (process.env.NODE_ENV !== "production") return DEV_FALLBACK_SECRET;
   throw new Error(
     "SESSION_SECRET must be set to a random string of at least 16 characters.",
