@@ -1,0 +1,18 @@
+# Blueprint for https://dashboard.render.com — New → Blueprint
+services:
+  - type: web
+    name: claritytrack
+    runtime: docker
+    plan: free
+    healthCheckPath: /
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DATA_DIR
+        value: /app/data
+      - key: PORT
+        value: "43123"
+    disk:
+      name: claritytrack-data
+      mountPath: /app/data
+      sizeGB: 1

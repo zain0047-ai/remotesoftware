@@ -1,0 +1,12 @@
+node_modules
+.next
+.git
+uploads
+agent-tools
+data/store.json
+data/.store.*.tmp
+*.md
+!README.md
+.env*
+.cursor
+terminals

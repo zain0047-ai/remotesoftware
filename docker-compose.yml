@@ -1,0 +1,17 @@
+services:
+  claritytrack:
+    build: .
+    ports:
+      - "43123:43123"
+    environment:
+      NODE_ENV: production
+      PORT: "43123"
+      HOSTNAME: "0.0.0.0"
+      DATA_DIR: /app/data
+    volumes:
+      # Persist users, approvals, sessions across restarts
+      - claritytrack-data:/app/data
+    restart: unless-stopped
+
+volumes:
+  claritytrack-data:

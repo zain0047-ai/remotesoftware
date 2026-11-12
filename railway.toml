@@ -1,0 +1,13 @@
+[build]
+builder = "DOCKERFILE"
+dockerfilePath = "Dockerfile"
+
+[deploy]
+healthcheckPath = "/"
+restartPolicyType = "ON_FAILURE"
+
+[variables]
+NODE_ENV = "production"
+DATA_DIR = "/app/data"
+PORT = "43123"
+HOSTNAME = "0.0.0.0"

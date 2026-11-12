@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>ClarityTrack — Project Status Report</title>
+  <style>
+    @page {
+      size: A4;
+      margin: 18mm 16mm 18mm 16mm;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+      color: #14201c;
+      font-size: 10.5pt;
+      line-height: 1.45;
+      margin: 0;
+    }
+    h1 {
+      font-size: 22pt;
+      margin: 0 0 6pt;
+      color: #0f6b5c;
+      letter-spacing: -0.02em;
+    }
+    h2 {
+      font-size: 13pt;
+      margin: 18pt 0 8pt;
+      color: #0f6b5c;
+      border-bottom: 1px solid #cfdad3;
+      padding-bottom: 4pt;
+    }
+    h3 {
+      font-size: 11pt;
+      margin: 12pt 0 6pt;
+      color: #1a332c;
+    }
+    p, li { margin: 0 0 6pt; }
+    .meta {
+      color: #5a6b64;
+      font-size: 9.5pt;
+      margin-bottom: 12pt;
+    }
+    .pills {
+      margin: 8pt 0 14pt;
+    }
+    .pill {
+      display: inline-block;
+      border: 1px solid #cfdad3;
+      border-radius: 999px;
+      padding: 2pt 8pt;
+      margin: 0 4pt 4pt 0;
+      font-size: 8.5pt;
+      color: #1a332c;
+      background: #e8eee9;
+    }
+    .pill.ok { background: #d7ebe3; border-color: #9fc9b8; }
+    .pill.warn { background: #f5ead8; border-color: #e0c48a; }
+    .callout {
+      background: #edf3ef;
+      border-left: 3px solid #0f6b5c;
+      padding: 8pt 10pt;
+      margin: 10pt 0 14pt;
+    }
+    .callout.warn {
+      background: #faf4ea;
+      border-left-color: #c47a2c;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 6pt 0 12pt;
+      font-size: 9.5pt;
+    }
+    th, td {
+      border: 1px solid #cfdad3;
+      padding: 5pt 6pt;
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      background: #e4efe9;
+      color: #1a332c;
+      font-weight: 600;
+    }
+    .kpi {
+      display: flex;
+      gap: 8pt;
+      margin: 10pt 0 14pt;
+    }
+    .kpi div {
+      flex: 1;
+      border: 1px solid #cfdad3;
+      border-radius: 6pt;
+      padding: 8pt;
+      text-align: center;
+      background: #f7faf8;
+    }
+    .kpi strong {
+      display: block;
+      font-size: 16pt;
+      color: #0f6b5c;
+    }
+    .kpi span {
+      font-size: 8.5pt;
+      color: #5a6b64;
+    }
+    .footer {
+      margin-top: 18pt;
+      font-size: 8.5pt;
+      color: #5a6b64;
+      border-top: 1px solid #cfdad3;
+      padding-top: 8pt;
+    }
+    ul { margin: 4pt 0 10pt; padding-left: 16pt; }
+    code { font-family: ui-monospace, monospace; font-size: 9pt; }
+  </style>
+</head>
+<body>
+  <h1>ClarityTrack — Project Status Report</h1>
+  <p class="meta">
+    WFH Employee Tracker MVP · Generated 5 Nov 2026, 6:44 PM (Asia/Karachi)<br />
+    Branch: <code>main</code> · Source prompt: WFH Employee Tracker R&amp;D Prompt &amp; Workflow
+  </p>
+
+  <div class="pills">
+    <span class="pill ok">MVP usable</span>
+    <span class="pill ok">Shared server store</span>
+    <span class="pill warn">Permanent host pending</span>
+    <span class="pill">No demo accounts</span>
+  </div>
+
+  <div class="callout">
+    <strong>One-line summary.</strong>
+    Privacy-first remote work tracker: admin creates the first account, employees register and wait
+    for approval, then use sessions, tasks, and reports. Idle is a signal — not punishment.
+    Shared file store + Docker configs are ready for permanent deploy.
+  </div>
+
+  <div class="kpi">
+    <div><strong>13</strong><span>App routes</span></div>
+    <div><strong>3</strong><span>Roles</span></div>
+    <div><strong>30</strong><span>Trello cards</span></div>
+    <div><strong>20</strong><span>R&amp;D deliverables</span></div>
+  </div>
+
+  <h2>1. Executive summary</h2>
+  <p>
+    ClarityTrack is a privacy-first remote-work MVP. The company admin creates the first account,
+    employees self-register and wait for approval, then use work sessions, tasks, and reports.
+    Idle detection is treated as a <strong>signal</strong>, not punishment. Screenshots in the web
+    MVP are <strong>simulated</strong>. Shared data lives in a server JSON store so every device
+    sees the same users and approvals.
+  </p>
+  <p>
+    <strong>Status:</strong> MVP usable · Shared store live · Permanent hosting configs ready ·
+    Permanent public domain still pending your Railway/Render (or similar) account.
+  </p>
+
+  <h2>2. Key metrics</h2>
+  <table>
+    <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+    <tbody>
+      <tr><td>App routes</td><td>13</td></tr>
+      <tr><td>Roles</td><td>3 (employee, manager, admin)</td></tr>
+      <tr><td>Trello export cards</td><td>30 across 9 lists</td></tr>
+      <tr><td>R&amp;D deliverables on <code>/rnd</code></td><td>20</td></tr>
+      <tr><td>Approx. <code>src</code> lines</td><td>~6,900</td></tr>
+      <tr><td>Feature commits (after init)</td><td>12</td></tr>
+    </tbody>
+  </table>
+
+  <h2>3. What was built</h2>
+
+  <h3>Auth &amp; accounts</h3>
+  <ul>
+    <li>First-admin bootstrap (no demo users)</li>
+    <li>Employee self-registration → pending until admin approves</li>
+    <li>Login blocked until approved / rejected messaging</li>
+    <li><strong>Account</strong> status (Approved/Pending) separate from <strong>Signed in</strong> (Online/Offline)</li>
+  </ul>
+
+  <h3>Employee workspace (<code>/app</code>)</h3>
+  <ul>
+    <li>Session start/end, monitoring notice + acknowledge</li>
+    <li>Break, low-input, idle warning (signal only), dispute</li>
+    <li>Tasks + daily submissions</li>
+    <li>Reports + CSV export</li>
+    <li>Transparency page (what is tracked, simulated evidence)</li>
+  </ul>
+
+  <h3>Manager (<code>/manager</code>)</h3>
+  <ul>
+    <li>Submission review (approve / revision / reject + feedback)</li>
+    <li>Team time overview</li>
+    <li>Weekly task assignment</li>
+  </ul>
+
+  <h3>Admin (<code>/admin</code>)</h3>
+  <ul>
+    <li>Pending registration queue</li>
+    <li>Users &amp; roles with Account + Signed in columns</li>
+    <li>Monitoring policy</li>
+    <li>Backup jobs + restore test plan</li>
+    <li>Audit log</li>
+  </ul>
+
+  <h3>R&amp;D pack (<code>/rnd</code>)</h3>
+  <ul>
+    <li>Full 20-deliverable documentation</li>
+    <li>Mermaid workflow diagrams</li>
+    <li>Competitive research matrix</li>
+    <li>Trello board export: JSON / CSV / Markdown + import guide</li>
+  </ul>
+
+  <h3>Data &amp; deploy</h3>
+  <ul>
+    <li>Shared store: <code>data/store.json</code> via <code>/api/store</code></li>
+    <li>Session id in browser <code>sessionStorage</code></li>
+    <li>Production: Dockerfile, docker-compose, render.yaml, railway.toml, DEPLOY.md</li>
+    <li>Temporary public access via Cloudflare quick tunnel</li>
+  </ul>
+
+  <h2>4. Roles &amp; flows</h2>
+  <table>
+    <thead><tr><th>Role</th><th>Flow</th></tr></thead>
+    <tbody>
+      <tr><td>Admin (you)</td><td>First account bootstrap → approve employees → policy → backups → Online vs Approved</td></tr>
+      <tr><td>Employee</td><td>Register (pending) → after approval: session, break/idle, tasks, reports, transparency</td></tr>
+      <tr><td>Manager</td><td>Assign weekly tasks, review submissions, view team time categories</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout warn">
+    <strong>Important.</strong>
+    Account status (Approved/Pending) is not the same as Signed in (Online/Offline).
+    Sign-out sets Offline; approval stays Approved.
+  </div>
+
+  <h2>5. Routes</h2>
+  <table>
+    <thead><tr><th>Path</th><th>Audience</th><th>Purpose</th></tr></thead>
+    <tbody>
+      <tr><td><code>/</code></td><td>Public</td><td>Admin setup / sign-in / employee register</td></tr>
+      <tr><td><code>/app</code></td><td>Employee</td><td>Work session</td></tr>
+      <tr><td><code>/app/tasks</code></td><td>Employee</td><td>Tasks + submissions</td></tr>
+      <tr><td><code>/app/reports</code></td><td>Employee</td><td>Reports + CSV</td></tr>
+      <tr><td><code>/app/transparency</code></td><td>Employee</td><td>Tracking transparency</td></tr>
+      <tr><td><code>/manager</code></td><td>Manager</td><td>Review queue</td></tr>
+      <tr><td><code>/manager/team</code></td><td>Manager</td><td>Team time</td></tr>
+      <tr><td><code>/manager/tasks</code></td><td>Manager</td><td>Assign tasks</td></tr>
+      <tr><td><code>/admin</code></td><td>Admin</td><td>Approvals, users, audit</td></tr>
+      <tr><td><code>/admin/policy</code></td><td>Admin</td><td>Monitoring policy</td></tr>
+      <tr><td><code>/admin/backups</code></td><td>Admin</td><td>Backups</td></tr>
+      <tr><td><code>/rnd</code></td><td>Anyone</td><td>R&amp;D documentation</td></tr>
+      <tr><td><code>/api/store</code></td><td>Server</td><td>Shared state API</td></tr>
+    </tbody>
+  </table>
+
+  <h2>6. Architecture</h2>
+  <table>
+    <thead><tr><th>Layer</th><th>Decision</th></tr></thead>
+    <tbody>
+      <tr><td>UI</td><td>Next.js 16 App Router, React 19, TypeScript, Tailwind 4, shadcn/ui</td></tr>
+      <tr><td>State</td><td>Client React store synced to server JSON file</td></tr>
+      <tr><td>Auth</td><td>Email/password in store; roles; approval gate</td></tr>
+      <tr><td>Privacy</td><td>Transparent notice; no covert capture; idle ≠ productivity</td></tr>
+      <tr><td>Deploy</td><td>Standalone Docker image + volume for <code>/app/data</code></td></tr>
+    </tbody>
+  </table>
+
+  <h2>7. Build timeline (Asia/Karachi)</h2>
+  <table>
+    <thead><tr><th>When</th><th>Milestone</th></tr></thead>
+    <tbody>
+      <tr><td>27 Oct 2026, 8:20 PM</td><td>Project initialized</td></tr>
+      <tr><td>27 Oct 2026, 8:30 PM</td><td>MVP + R&amp;D pack shipped</td></tr>
+      <tr><td>27 Oct 2026, 8:38 PM</td><td>Trello board export</td></tr>
+      <tr><td>27 Oct 2026, 8:58 PM</td><td>Employee self-registration</td></tr>
+      <tr><td>27 Oct 2026, 9:01 PM</td><td>Admin approval before login</td></tr>
+      <tr><td>27 Oct 2026, 9:09 PM</td><td>Nav stacking bug fixed</td></tr>
+      <tr><td>27 Oct 2026, 9:13 PM</td><td>Shared server store + public tunnel</td></tr>
+      <tr><td>27 Oct 2026, 9:22 PM</td><td>Demo accounts removed; admin bootstrap</td></tr>
+      <tr><td>27 Oct 2026, 9:34 PM</td><td>Online/Offline presence tracking</td></tr>
+      <tr><td>29 Oct 2026, 7:38 PM</td><td>Docker / Railway / Render deploy configs</td></tr>
+      <tr><td>5 Nov 2026, 6:40 PM</td><td>Project status report generated</td></tr>
+    </tbody>
+  </table>
+
+  <h2>8. Deploy status</h2>
+  <p>
+    Temporary Cloudflare quick tunnels were used for public demos; those URLs expire when the
+    agent/server stops. Permanent deploy files are in the repo:
+    <code>Dockerfile</code>, <code>docker-compose.yml</code>, <code>render.yaml</code>,
+    <code>railway.toml</code>, <code>DEPLOY.md</code>.
+  </p>
+  <p>
+    <strong>Recommended next step:</strong> Push to GitHub → Railway or Render with a disk volume
+    at <code>/app/data</code> → create your admin account on the new URL.
+  </p>
+
+  <h2>9. Not built yet (Phase 2)</h2>
+  <ul>
+    <li>Real OS screenshots / desktop agent (with explicit permissions)</li>
+    <li>Production database (Postgres) instead of JSON file</li>
+    <li>SSO / SCIM</li>
+    <li>Email report delivery with retries</li>
+    <li>Permanent public domain on your hosting account</li>
+    <li>Covert monitoring — out of scope / disallowed</li>
+  </ul>
+
+  <div class="footer">
+    ClarityTrack · WFH Employee Tracker · Project status report for owner review ·
+    Asia/Karachi timestamps · Branch main
+  </div>
+</body>
+</html>
